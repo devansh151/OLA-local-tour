@@ -1,0 +1,278 @@
+{
+    "enhancers" : [
+        {
+            "id" : "e1",
+            "name" : "Service rental",
+            "group":"enhancers",
+            "description" : "Service rental Ride time to bookings equivalent",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        },
+        {
+            "id" : "e2",
+            "name" : "Tagging-Airport",
+            "group":"enhancers",
+            "description" : "Tagging-Airport Count as",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        },
+        {
+            "id" : "e3",
+            "name" : "Priority Tag to",
+            "group":"enhancers",
+            "description" : "Priority Tag to Count as",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        },
+        {
+            "id" : "e4",
+            "name" : "Distance",
+            "group":"enhancers",
+            "description" : "Distance to bookings equivalent",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        }
+    ],
+    "constraints" : [
+        {
+            "id" : "c1",
+            "name" : "Bookings total",
+            "group":"constraints",
+            "description" : "Bookings total",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        }
+    ],
+    "incentives" : [
+        {
+            "id" : "i1",
+            "name" : "Bookings total",
+            "group":"incentives",
+            "description" : "Bookings total",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        },
+        {
+            "id" : "i2",
+            "name" : "Bookings per unit",
+            "group":"incentives",
+            "description" : "Bookings per unit",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        },
+        {
+            "id" : "i3",
+            "name" : "Bookings percentage of ob",
+            "group":"incentives",
+            "description" : "Bookings percentage of ob",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        },
+        {
+            "id" : "i4",
+            "name" : "GeoTag",
+            "group":"incentives",
+            "description" : "GeoTag Per Unit",
+            "graph" : {
+                "nodes": [
+                  { "id": "f1", "label": "Filter1" },
+                  { "id": "f2", "label": "Filter2" },
+                  { "id": "o1", "label": "operator1" }                                    
+                ],
+                "edges": [
+                  { "id": "e1", "from": "f1", "to": "o1" },
+                  { "id": "e2", "from": "f2", "to": "o1" }                
+                ]
+              }
+        }
+    ],
+    "filters" : [
+        {
+            "id" : "ex1",
+            "name" : "Filter 1",
+            "group":"filters",
+            "description" : "Service rental Ride time to bookings equivalent",
+            "type":"==",
+            "attribute":"priority_tagging",
+            "defaultValue":"to bangalore"
+        },
+        {
+            "id" : "ex2",
+            "name" : "Filter 2",
+            "group":"filters",
+            "description" : "Tagging-Airport Count as",
+            "type":"!=",
+            "attribute":"airport_tagging",
+            "defaultValue":"to sydney"
+        },
+        {
+            "id" : "ex3",
+            "name" : "Filter 3",
+            "group":"filters",
+            "description" : "Priority Tag to Count as",
+            "type":"!=",
+            "attribute":"priority_tagging",
+            "defaultValue":"to bangalore"
+        },
+        {
+            "id" : "ex4",
+            "name" : "Filter 4",
+            "group":"filters",
+            "description" : "Distance to bookings equivalent",
+            "type":"==",
+            "attribute":"priority_tagging",
+            "defaultValue":"to bangalore"
+        }
+    ],
+    "operators" : [
+        {
+            "id" : "cx1",
+            "name" : "Operator 1",
+            "group":"operators",
+            "description" : "Bookings total",
+            "type":"Subtract",
+            "attribute":"ola_care",
+            "aggregation":"Total"
+        }
+    ],
+    "switch" : [
+        {
+            "id" : "ix1",
+            "name" : "Switch 1",
+            "group":"Switch",
+            "description" : "Bookings total",
+            "type":"!=",
+            "attribute":"ola_care",
+            "aggregation":"Sum"
+        },
+        {
+            "id" : "ix2",
+            "name" : "Switch 2",
+            "group":"switch",
+            "description" : "Bookings per unit",
+            "type":"!=",
+            "attribute":"ola_care",
+            "aggregation":"Sum"
+        },
+        {
+            "id" : "ix3",
+            "name" : "switch 3",
+            "group":"switch",
+            "description" : "Bookings percentage of ob",
+            "type":"==",
+            "attribute":"ola_care",
+            "aggregation":"Sum"
+        },
+        {
+            "id" : "ix4",
+            "name" : "Switch 4",
+            "group":"switch",
+            "description" : "GeoTag Per Unit",
+            "type":"!=",
+            "attribute":"ola_care",
+            "aggregation":"Sum"
+        }
+    ],
+    "latch":[
+        {
+            "id" : "ix1",
+            "name" : "Latch 1",
+            "group":"latch",
+            "description" : "Bookings total",
+            "defaultValue":"1000"
+        }
+    ],
+    "mergers":[
+        {
+            "id" : "ix1",
+            "name" : "Merger 11",
+            "group":"mergers",
+            "description" : "Bookings total",
+            "type":"Union"
+        }
+    ],
+    "conditions":[
+        {
+            "id" : "ix1",
+            "name" : "Condition 1",
+            "group":"conditions",
+            "description" : "Bookings total",
+            "type":"NOT"
+        }
+    ],
+    "schemes" : [
+      
+    ]
+}

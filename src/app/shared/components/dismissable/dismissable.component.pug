@@ -1,0 +1,5 @@
+.dropdown-holder
+	.box-holder('#boxHolder'="", '(click)'="openSuggestions($event)")
+		ng-content(select="[dropdown-box]")
+	.suggestions-holder('#suggestionsHolder'="" '[ngClass]'="{'expanded': (suggestionsExpanded == true)}")
+		ng-content(select="[suggestions-holder]")

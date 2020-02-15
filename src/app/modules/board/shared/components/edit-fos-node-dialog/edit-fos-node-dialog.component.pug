@@ -1,0 +1,15 @@
+.edit-fos-dialog
+  h1('mat-dialog-title'="") Editing {{ data.name }}
+  mat-chip-list
+    mat-basic-chip([ngClass]="data.group") {{ data.group }}
+  div('mat-dialog-content'="")
+    ng-container([ngSwitch]="data.type")
+      od-edit-condition(*ngSwitchCase="'conditions'")
+      od-edit-operator(*ngSwitchCase="'operators'")
+      od-edit-filter(*ngSwitchCase="'filters'")
+      od-edit-latch(*ngSwitchCase="'latch'")
+      od-edit-merger(*ngSwitchCase="'mergers'")
+      od-edit-switch(*ngSwitchCase="'switch'")
+  div('mat-dialog-actions'="")
+    button('mat-button'="",'mat-dialog-close'="") Cancel
+    button('mat-button'="",(click)="save()", 'cdkFocusInitial'="") Save

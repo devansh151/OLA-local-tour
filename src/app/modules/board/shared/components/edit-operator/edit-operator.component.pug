@@ -1,0 +1,20 @@
+mat-form-field
+	input('matInput'="",placeholder="Operator name",'required'="")
+mat-form-field
+	mat-select('matInput'="",placeholder="Select operator type", name="operatorTypes",(change)="onOperatorTypeChange($event)",'required'="")
+		mat-option(*ngFor="let type of operatorTypes", [value]="type.value")
+			| {{ type.viewValue }}
+mat-form-field
+	mat-select('matInput'="",placeholder="Select input attribute", name="inputAttributeTypes",(change)="onInputAttributeTypeChange($event)",'required'="")
+		mat-option(*ngFor="let type of inputAttributeTypes", [value]="type.value")
+			| {{ type.viewValue }}
+mat-form-field
+	mat-select('matInput'="",placeholder="Select output attribute", name="outputAttributeTypes",(change)="onOutputAttributeTypeChange($event)",'required'="")
+		mat-option(*ngFor="let type of outputAttributeTypes", [value]="type.value")
+			| {{ type.viewValue }}
+mat-form-field
+	mat-select('matInput'="",placeholder="Select aggregate flag", name="aggregateTypes",(change)="onAggregateTypeChange($event)",'required'="")
+		mat-option(*ngFor="let type of aggregateTypes", [value]="type.value")
+			| {{ type.viewValue }}
+mat-form-field
+	input('matInput'="",placeholder="Default value",'required'="")

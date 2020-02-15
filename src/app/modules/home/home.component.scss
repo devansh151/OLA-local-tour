@@ -1,0 +1,12 @@
+@import '../../styles/base/_variables.scss';
+
+body{
+    padding:15px;
+    font-family: 'Roboto', sans-serif;
+}
+article.main-content-container{
+    z-index: 1;
+    .router-outlet{
+        z-index: 1;
+    }
+}

@@ -1,0 +1,15 @@
+header(fxLayoutAlign="space-between center")
+	.date-info
+		| {{getMonthName(month)}} {{year}}
+	nav.actions
+		button('(click)'="prevMonth()", [disabled]="prevMonthDisabled()")
+			span.icon-arrow-left
+		button('(click)'="nextMonth()", [disabled]="nextMonthDisabled()")
+			span.icon-arrow-right
+table.datepicker-table
+	thead
+		tr
+			th('*ngFor'="let weekDay of weekDays") {{weekDay}}
+	tbody
+		tr('*ngFor'="let row of calendarMatrix; let rowIndex=index; trackBy: trackByIndex;")
+			td('*ngFor'="let data of row; let colIndex=index; trackBy: trackByIndex;", '[ngClass]'="{'dull': (data.get('isInActive') ), 'selected': data.get('selected')}", '(click)'="(data.get('isInActive'))?'javascript:void(0);':selectDate(data, rowIndex, colIndex)") {{data.get('date')}}

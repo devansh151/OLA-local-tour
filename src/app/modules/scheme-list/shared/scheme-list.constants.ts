@@ -1,0 +1,4 @@
+export const SchemeListConstants = {
+    SET_CITY_SCHEMES:'SET_CITY_SCHEMES',
+    SET_SCHEME_LOADING:'SET_SCHEME_LOADING'
+}

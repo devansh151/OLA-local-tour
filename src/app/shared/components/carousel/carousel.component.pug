@@ -1,0 +1,8 @@
+div.full-width.carousel-container
+	a.left-holder('[ngClass]'="{'disabled': activeIndex == 0}", 'href'= "javascript:void(0)", '(click)'="updateIndex(-1)", '*ngIf'="imagesList.size > 1")
+		i.icon-arrow-left('[ngClass]'="{'no-event': activeIndex == 0}")
+	img('*ngIf'="imagesList.get(activeIndex).type === 'IMAGE'", '[src]'="imagesList.get(activeIndex).url")
+	video.full-width( '#videoEl'="", '*ngIf'="imagesList.get(activeIndex).type == 'VIDEO'" controls)
+		source('[src]'="imagesList.get(activeIndex).url", 'type'="video/mp4")
+	a.right-holder('[ngClass]'="{'disabled': activeIndex == lastIndex}", 'href'= "javascript:void(0)", '(click)'="updateIndex(1)", '*ngIf'="imagesList.size > 1")
+		i.icon-arrow-right('[ngClass]'="{'no-event': activeIndex == lastIndex}")

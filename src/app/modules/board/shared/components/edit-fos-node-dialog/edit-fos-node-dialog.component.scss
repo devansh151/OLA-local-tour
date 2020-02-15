@@ -1,0 +1,11 @@
+@import '../../../../../styles/base/_variables.scss';
+
+.edit-fos-dialog{
+    padding:24px;
+    .mat-dialog-content{
+        text-align: center;
+        .mat-form-field{
+            display: block;
+        }
+    }
+}

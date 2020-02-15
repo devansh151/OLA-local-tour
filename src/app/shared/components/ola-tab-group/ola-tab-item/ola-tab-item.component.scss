@@ -1,0 +1,54 @@
+@import '../../../../styles/base/_variables.scss';
+$cyan: #00bcd4;
+$yellow: #ffeb3b;
+$grey: #9e9e9e;
+ola-tab-item:first-child {
+    text-align: left;
+    .tab-item-label {
+        text-align: left;
+    }
+}
+
+.tab-item {
+    // flex-basis: 100%;
+    .tab-item-label {
+        // background: $cyan;
+        text-align: left;
+        padding: 16px 30px 16px 20px;
+        cursor: pointer;
+        line-height: 18px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #28313B;
+        position: relative;
+        >span {
+            right: 0;
+            top: 18px;
+            display: inline-block;
+            min-width: 10px;
+            padding: 3px 4px;
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            background-color: #96a4b0;
+            border-radius: 2px;
+        }
+    }
+    .tab-item-content {
+        position: absolute;
+        border-top: 1px solid $border-grey;
+        background: #eff2f7;
+        width: 100%;
+        left: 0; // overflow-y: auto;
+        >.past-dropdown {
+            height: auto !important;
+        }
+        >* {
+            height: 100% !important;
+        }
+    }
+}

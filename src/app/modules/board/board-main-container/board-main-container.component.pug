@@ -1,0 +1,117 @@
+mat-horizontal-stepper.board-stepper([linear]="true", '#stepper'="")
+	mat-step([stepControl]="firstFormGroup")
+		form([formGroup]="firstFormGroup")
+			ng-template('matStepLabel'="") Basic Details
+			.form-area
+				mat-grid-list(cols="3", rowHeight="fit")
+					mat-grid-tile
+						mat-form-field
+							input('matInput'="",placeholder="Scheme name", formControlName="schemeName", autocomplete="off")
+					mat-grid-tile
+						mat-form-field
+							input('matInput'="", [matDatepicker]="validFromDatepicker",formControlName="validFrom", placeholder="Choose a from date",autocomplete="off")
+							mat-datepicker-toggle('matSuffix'="", [for]="validFromDatepicker")
+							mat-datepicker('#validFromDatepicker'="")
+					mat-grid-tile
+						mat-form-field
+							input('matInput'="", [matDatepicker]="validToDatepicker",formControlName="validTo", placeholder="Choose a to date",autocomplete="off")
+							mat-datepicker-toggle('matSuffix'="", [for]="validToDatepicker")
+							mat-datepicker('#validToDatepicker'="")
+					mat-grid-tile
+						mat-form-field
+							mat-select('matInput'="",placeholder="Select frequency", name="frequencyTypes",formControlName="frequencyTypes",(change)="onFrequencyChange($event)")
+								mat-option(*ngFor="let frequency of frequencyTypes", [value]="frequency.value")
+									| {{ frequency.viewValue }}
+							//- input('matInput'="",type="number",placeholder="Frequency", formControlName="frequency)
+					mat-grid-tile
+						mat-form-field
+							mat-select('matInput'="",placeholder="Select day of week", name="dow",formControlName="dow",(change)="onDowChange($event)",'multiple'="")
+								mat-option(*ngFor="let day of dayOfWeek", [value]="day.value")
+									| {{ day.viewValue }}
+								//- input('matInput'="",placeholder="Day of week", formControlName="dow)
+					mat-grid-tile
+						| Status&nbsp;&nbsp;&nbsp;
+						mat-slide-toggle('matInput'="",formControlName="schemeEnabled")
+						//- input('matInput'="",placeholder="", formControlName="schemeEnabled)
+	mat-step([stepControl]="secondFormGroup")
+		form([formGroup]="secondFormGroup")
+			ng-template('matStepLabel'="") C Block
+		od-fos-main-container(*ngIf="FOSContainerVisibility",[node]="currentNodeDetails",(output)="handleFOSOutput($event)")
+		ng-container(*ngIf="!FOSContainerVisibility")
+			.board-header(fxLayout="row",fxLayoutAlign="center center")
+				mat-form-field.mat-elevation-z6.category-dropdown
+					mat-select(placeholder="Category", [(ngModel)]="selectedCategory", name="category",(change)="onCategoryChange($event)")
+						mat-option(*ngFor="let category of searchCategories", [value]="category.value")
+							| {{ category.viewValue }}
+				.search-wrapper
+					mat-form-field.search-bar.mat-elevation-z6([hideRequiredMarker]="false",floatLabel="Node ID")
+						input('matInput'="",type="text", placeholder="Search for Enhancer, Constraint, Incentive or MBG",(keyup)="search($event)",[matAutocomplete]="auto")
+					mat-autocomplete.search-autocomplete('#auto'="matAutocomplete")
+						mat-option.search-autocomplete-option(*ngFor="let option of suggestions", [value]="option.get('name')",(click)="suggestionSelected(option)")
+							p.search-autocomplete-option-text(fxLayout="row",fxLayoutAlign="space-between center")
+								| {{ option.get('name') }}
+								mat-chip-list
+									mat-basic-chip([ngClass]="option.get('group')") {{ option.get('group') }}
+					.search-icon
+						mat-icon search
+					//- input.search-bar.mat-elevation-z6(type="text", placeholder="Search for Enhancer, Constraint, Incentive or MBG",(keyup)="search($event)")
+					//- .search-icon
+					//-     mat-icon search
+			.main-area(fxLayout="row",fxLayoutAlign="space-between stretch")
+				.left-main
+					.mobile-pane
+						iframe#schemePreviewFrame(src="http://incentive-web-8080a.stg.corp.olacabs.com/incentive-home?source=incentiveportal&schemeId=edd9d124_1ba3_41df_a1a5_b8bd6287395b" frameborder="0")
+						//- img(src="/assets/images/webui.png")
+						.blocker(*ngIf="showBlocker")
+						mat-icon.refresh-icon(*ngIf="showBlocker",matTooltip="Refresh", matTooltipPosition="above", (click)="reloadFrame()") refresh
+				.right-main
+					.workflow-area#workflow-area(*ngIf="!(isLoading$ | async) && (flowchart$ | async).size >0",(drop)="drop($event)", (dragover)="allowDrop($event)",fxLayout="column",fxLayoutAlign="center center")
+					.placeholder-area(fxLayout="column",fxLayoutAlign="center center", *ngIf="!(isLoading$ | async) && (flowchart$ | async).size <=0")
+						h1 No Flowchart found. Try searching...
+					.loading-area(fxLayout="column",fxLayoutAlign="center center",*ngIf="isLoading$ | async")
+						.scene
+							img.car(src="./assets/images/car.png", alt="", width="50")
+							img.poof(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/poof.svg", alt="",width="15")
+							img.sign(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/sign.svg", alt="", width="15")
+						span loading...
+	mat-step
+		ng-template('matStepLabel'="") Car Filters
+		form([formGroup]="thirdFormGroup")
+			.form-area
+				mat-grid-list(cols="3", rowHeight="fit")
+					mat-grid-tile
+						mat-form-field
+							input('matInput'="",placeholder="Economy", formControlName="economy",'required'="",autocomplete="off")
+					mat-grid-tile
+						mat-form-field
+							mat-select('matInput'="",placeholder="Select Fuel Type", name="fuelType",formControlName="fuelType",(change)="onFuelTypeChange($event)",'required'="")
+								mat-option(*ngFor="let fuel of fuelType", [value]="fuel.value")
+									| {{ fuel.viewValue }}
+					mat-grid-tile
+						mat-form-field
+							mat-select('matInput'="",placeholder="Select Car Category", name="carCategory",formControlName="carCategory",(change)="onCarCategoryChange($event)",'required'="")
+								mat-option(*ngFor="let car of carCategory", [value]="car.value")
+									| {{ car.viewValue }}
+					mat-grid-tile(colspan="3")
+						input(type="file",placeholder="Upload a File", formControlName="file",'required'="")
+.action-bar(fxLayout="row",fxLayoutAlign="center center")
+	ng-container(*ngIf="!FOSContainerVisibility")
+		span {{ actionbarHint }}
+		.actionbar-btn-wrapper(fxLayout="row",fxLayoutAlign="start center")
+			//- button.icon-add-node(*ngIf="actionBtnVisibility.node",'mat-mini-fab'="", (click)='openAddNodeDialog()')
+			//-     mat-icon(matTooltip="Add Node", matTooltipPosition="above") timeline
+			button.icon-add-edge(*ngIf="stepper.selectedIndex==1 && actionBtnVisibility.edge",(click)='addEdge()','mat-mini-fab'="")
+				mat-icon(matTooltip="Add Edge", matTooltipPosition="above") timeline
+			button.icon-action-back(*ngIf="stepper.selectedIndex==1 && actionBtnVisibility.back",'mat-mini-fab'="",(click)="back()")
+				mat-icon(matTooltip="Back", matTooltipPosition="above") arrow_back
+			button.icon-action-delete(*ngIf="stepper.selectedIndex==1 && actionBtnVisibility.delete",'mat-mini-fab'="",(click)="deleteSelected()")
+				mat-icon(matTooltip="Delete selected", matTooltipPosition="above") delete
+			button.icon-action-view(*ngIf="stepper.selectedIndex==1 && actionBtnVisibility.view",'mat-mini-fab'="",(click)="showNodeDetailsDialog()")
+				mat-icon(matTooltip="View Selected node", matTooltipPosition="above") visibility
+			button.icon-action-view(*ngIf="stepper.selectedIndex==1 && actionBtnVisibility.edit",'mat-mini-fab'="",(click)="showFOSContainer()")
+				mat-icon(matTooltip="Edit Selected node", matTooltipPosition="above") edit
+		.actionbar-save-btn-wrapper(fxLayout="row",fxLayoutAlign="start center")
+			button.icon-add-edge((click)='previousStep(stepper)','mat-mini-fab'="",[ngClass]="stepper.selectedIndex==0 ? 'disabled' : ''",[disabled]="stepper.selectedIndex==0")
+				mat-icon.previous(matTooltip="Previous Step", matTooltipPosition="above") arrow_back
+			button.icon-add-edge((click)='nextStep(stepper)','mat-mini-fab'="")
+				mat-icon.next([matTooltip]="stepper.selectedIndex==2 ? 'Save Scheme' : 'Save and next'", matTooltipPosition="above") {{ stepper.selectedIndex==2 ? 'save': 'arrow_forward' }}

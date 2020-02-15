@@ -1,0 +1,41 @@
+.mat-header-row, .mat-row {
+    display: flex;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    align-items: center;
+    padding: 0 24px;
+    box-sizing: border-box;
+    border-bottom-color: rgba(0,0,0,.12);
+}
+
+.mat-row {
+    min-height: 48px;
+    .action-col .icon{
+        display: none;
+    }
+    &:hover .action-col .icon{
+        display: inline-block;    
+    }
+}
+.mat-cell, .mat-header-cell {
+    flex: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+    line-height: 2;
+}
+
+.mat-cell {
+    color: rgba(0,0,0,.87);
+    font-size: 14px;
+    line-height: 2;
+    .icon{
+    font-size: 14px;
+    cursor: pointer;
+    }
+    &.action-col{
+        flex: 0 0 30px;
+    }
+    &.status-col{
+        flex: 0 0 80px;
+    }
+}

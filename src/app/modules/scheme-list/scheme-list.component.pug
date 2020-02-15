@@ -1,0 +1,121 @@
+#map.main-area(*ngIf="!reviewBooking",fxLayout="column",fxLayoutAlign="start center")
+mat-form-field.main-search(*ngIf="!reviewBooking")
+	mat-select(placeholder="Select City", [(ngModel)]="selectedCity" name="city", (change)="cityChanged($event)")
+		mat-option(*ngFor="let city of cities", [value]="city.value")
+			| {{ city.viewValue }}
+.loading-area(fxLayout="column",fxLayoutAlign="center center",*ngIf="isLoading$ | async",[@toggleState]="schemeList.size")
+	.scene
+		img.car(src="./assets/images/car.png", alt="", width="50")
+		img.poof(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/poof.svg", alt="",width="15")
+		img.sign(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43033/sign.svg", alt="", width="15")
+	span loading...
+
+
+	//- mat-paginator.mat-elevation-z8.paginator(*ngIf="!(isLoading$ | async) && schemeList.size >0",[length]="100",[pageSize]="10",[pageSizeOptions]="[5, 10, 25, 100]")
+//- button.icon-create-scheme('mat-fab'="")
+//- 	mat-icon(matTooltip="Create Scheme", matTooltipPosition="above", (click)="navigateToBoard()") add
+.category-bar(*ngIf="showCategory && !reviewBooking",fxLayout="row",fxLayoutAlign="space-between center")
+	.category(fxLayout="column",fxLayoutAlign="space-between center",(click)="selectCategory('science')")
+		.icon-container(fxLayout="column",fxLayoutAlign="center center",[ngClass]="{active: currentCategory=='science'}")
+			img([src]="'./assets/images/science.png'")
+		.name Science freak
+	.category(fxLayout="column",fxLayoutAlign="space-between center",(click)="selectCategory('wildlife')")
+		.icon-container(fxLayout="column",fxLayoutAlign="center center",[ngClass]="{active: currentCategory=='wildlife'}")
+			img([src]="'./assets/images/wild.png'")
+		.name Wildling
+	.category(fxLayout="column",fxLayoutAlign="space-between center",(click)="selectCategory('shopping')")
+		.icon-container(fxLayout="column",fxLayoutAlign="center center",[ngClass]="{active: currentCategory=='shopping'}")
+			img([src]="'./assets/images/shop.png'")
+		.name Shopoholic
+	.category(fxLayout="column",fxLayoutAlign="space-between center",(click)="selectCategory('mix')")
+		.icon-container(fxLayout="column",fxLayoutAlign="center center",[ngClass]="{active: currentCategory=='mix'}")
+			img([src]="'./assets/images/mix.png'")
+		.name Custom
+	.category(fxLayout="column",fxLayoutAlign="space-between center",(click)="back()")
+		.icon-container(fxLayout="column",fxLayoutAlign="center center")
+			img([src]="'./assets/images/back.png'")
+
+.book-bar(*ngIf="showCategory && !reviewBooking",fxLayout="row",fxLayoutAlign="space-between center")
+	.category(fxLayout="column",fxLayoutAlign="center center",(click)="reviewTour()")
+		.name Book Now
+	//- .category(fxLayout="column",fxLayoutAlign="center center",[ngClass]="{active: currentCategory=='wildlife'}",(click)="selectCategory('wildlife')")
+	//- 	.name Book Now
+	//- .category(fxLayout="column",fxLayoutAlign="center center",[ngClass]="{active: currentCategory=='shopping'}",(click)="selectCategory('shopping')")
+	//- 	.name Book Now
+	//- .category(fxLayout="column",fxLayoutAlign="center center",[ngClass]="{active: currentCategory=='mix'}",(click)="selectCategory('mix')")
+	//- 	.name Book Now
+	//- .category.back(fxLayout="column",fxLayoutAlign="center center",(click)="back()")
+	//- 	.name Book now
+
+.action-bar(*ngIf="!showCategory && !reviewBooking",fxLayout="row",fxLayoutAlign="space-between center")
+	.category(fxLayout="column",fxLayoutAlign="space-between center")
+		.icon-container(fxLayout="column",fxLayoutAlign="start center")
+			img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_auto.png'")
+			.time no autos
+		.name Auto
+	.category(fxLayout="column",fxLayoutAlign="space-between center")
+		.icon-container(fxLayout="column",fxLayoutAlign="start center")
+			img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_micro.png'")
+			.time
+				mat-icon.icon(matTooltip="Add Edge", matTooltipPosition="above") more_horiz
+		.name Micro
+	.category.tour(fxLayout="column",fxLayoutAlign="space-between center")
+		.icon-container(fxLayout="column",fxLayoutAlign="start center")
+			img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_share.png'")
+			.time New
+		.name Tour
+	.category(fxLayout="column",fxLayoutAlign="space-between center")
+		.icon-container(fxLayout="column",fxLayoutAlign="start center")
+			img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_mini.png'")
+			.time
+				mat-icon.icon(matTooltip="Add Edge", matTooltipPosition="above") more_horiz
+		.name Mini
+	.category(fxLayout="column",fxLayoutAlign="space-between center")
+		.icon-container(fxLayout="column",fxLayoutAlign="start center")
+			img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_prime.png'")
+			.time
+				mat-icon.icon(matTooltip="Add Edge", matTooltipPosition="above") more_horiz
+		.name Prime
+.review-booking(*ngIf="reviewBooking")
+	.review-header.mat-elevation-z6(fxLayout="row",fxLayoutAlign="start center") 
+		mat-icon((click)="backToCat()") arrow_back
+		| {{'Iterinery for '+cities[selectedCity].viewValue+' ' +currentCategory}}
+	table.mat-table
+		tr.mat-header-row
+			th.mat-header-cell Place
+			th.mat-header-cell Dep Time
+		ng-container(*ngFor="let item of currentIterinary")
+			od-scheme-list-item([item]="item")
+		.meta
+			table.mat-table
+				tr.mat-header-row
+					th.mat-header-cell(colSpan="2") Package Details
+				tr.mat-row(*ngFor="let item of currentMeta")
+					td.mat-cell {{ item.name }}
+					td.mat-cell {{ item.value }}
+				tr.mat-row.car-cat
+					mat-radio-group(aria-label="Select car", [(ngModel)]="currentCarCat")
+						mat-radio-button(value="10 $")
+							img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_auto.png'")
+							| Auto
+						mat-radio-button(value="50 $")
+							img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_micro.png'")
+							| Micro
+						mat-radio-button(value="100 $")
+							img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_mini.png'")
+							| Mini
+						mat-radio-button(value="120 $")
+							img([src]="'https://olawebcdn.com/images/v1/cabs/sl/ic_prime.png'")
+							| Prime
+				tr.mat-row
+					td.mat-cell Package cost
+					td.mat-cell {{ currentCarCat }}
+		.rules
+			table.mat-table
+				tr.mat-header-row
+					th.mat-header-cell Rules
+				tr.mat-row(*ngFor="let item of currentRules")
+					td.mat-cell {{ '. '+item }}
+
+	.review-footer(fxLayout="row",fxLayoutAlign="center center") 
+		| Confirm Booking

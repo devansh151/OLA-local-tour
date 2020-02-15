@@ -1,0 +1,57 @@
+@import './../../../styles/base/_variables.scss';
+header {
+    width: 100%;
+    padding: 16.6px 30px;
+    .date-info {
+        font-size: 12px;
+    }
+    nav.actions {
+        >button {
+            padding: 5px 6px;
+            margin-left: 10px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background: $light-grey;
+            font-size: 7px;
+            outline: none;
+            .icon-arrow-left{
+                color: $font-grey;
+            }
+        }
+    }
+}
+
+.datepicker-table {
+    margin: 1.25rem;
+    margin-top: 0;
+    tr {
+        th {
+            padding: 0.4375rem;
+            text-align: center;
+            font-size: 10px;
+        }
+        td {
+            padding: 0.4375rem;
+            text-align: center;
+            font-size: 9.3px;
+            &.dull {
+                color: #E1E4E7;
+                font-weight: normal;
+                &:hover {
+                    background: transparent;
+                }
+            }
+            border-radius: 50%;
+            transition: 0.2s;
+            cursor: pointer;
+            &:hover {
+                background: $light-grey;
+            }
+            &.selected {
+                background: $primary-color;
+                color: $white;
+            }
+        }
+    }
+}

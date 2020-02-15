@@ -1,0 +1,233 @@
+.sprite {
+    background: url('/feedback/assets/images/sprite.png') no-repeat top left;
+    width: 51px;
+    height: 51px;
+}
+
+.mobile-pane {
+    background: url('/feedback/assets/images/phone.png') no-repeat top left;
+    height: 620px;
+    width: 370px;
+}
+
+.sprite.odlogo {
+    background-position: 0 3px;
+    width: 900px!important;
+    height: 56px!important;
+    transform: scale(0.4) translate(-46px, -5px);
+    +span {
+        left: -31px;
+    }
+}
+
+.sprite.nps {
+    transform: translate(-10px, -4px) scale(0.5);
+    width: 70px !important;
+    background-position:0 -1645px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.ces {
+    transform: translate(-10px, -4px) scale(0.5);
+    width: 24px !important;
+    background-position: 0 -1563px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.csat {
+    transform: translate(-10px, -4px) scale(0.5);
+    width: 24px !important;
+    background-position: 0 -1727px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.unknown {
+    transform: translate(15px, 9px);
+    width: 24px !important;
+    background-position: 0 -184px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.contacts {
+    transform: translate(15px, 9px);
+    width: 24px !important;
+    background-position: 0 -220px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.home {
+    transform: translate(-20px, -15px) scale(0.33);
+    width: 24px !important;
+    background-position: 0 -1193px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.inbox {
+    transform: translate(-20px, -15px) scale(0.33);
+    width: 24px !important;
+    background-position: 0 -1265px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.insights {
+    transform: translate(-20px, -15px) scale(0.33);
+    width: 24px !important;
+    background-position: 0 -1337px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.overview {
+    transform: translate(-20px, -15px) scale(0.33);
+    width: 24px !important;
+    background-position: 0 -1409px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.settings {
+    transform: translate(-10px, -4px) scale(0.33);
+    width: 24px !important;
+    background-position: 0 -1481px;
+    height: 40px !important;
+    +span {
+        left: 4px;
+    }
+}
+
+.sprite.email {
+    transform: scale(0.5) translate(-6px, -5px);
+    width: 108px !important;
+    height: 84px !important;
+    display: block;
+    background-position: 0 -453px;
+}
+
+.sprite.inapp {
+    transform: scale(0.4) translate(-34px, -27px);
+    width: 130px !important;
+    height: 100px !important;
+    display: block;
+    background-position: 0 -635px;
+}
+
+.sprite.smslink {
+    transform: scale(0.4) translate(28px, -43px);
+    width: 80px !important;
+    height: 110px !important;
+    display: block;
+    background-position: 0 -741px;
+}
+
+.sprite.sms-inline {
+    transform: scale(0.4) translate(28px, -45px);
+    width: 80px !important;
+    height: 110px !important;
+    display: block;
+    background-position: 0 -856px;
+}
+
+.selected {
+    .sprite.email {
+        transform: scale(0.5) translate(-6px, -5px);
+        width: 108px !important;
+        height: 84px !important;
+        display: block;
+        background-position: 0 -544px;
+    }
+}
+
+.sprite.info {
+    background-position: 0 -798px;
+    width: 18px;
+    height: 18px;
+}
+
+.sprite.question {
+    background-position: 0 -824px;
+    width: 18px;
+    height: 18px;
+}
+
+.sprite.rearrange-icon {
+    background-position: 0 -850px;
+    width: 18px;
+    height: 18px;
+}
+
+// .sprite.uncheckbox {
+//   background-position: 0 -965px;
+//   width: 18px;
+//   height: 18px;
+// }
+// .sprite.checkbox {
+//   background-position: 0 -984px;
+//   width: 18px;
+//   height: 18px;
+// }
+.sprite.blank-image {
+    background-position: 0 -1057px;
+    width: 45px;
+    height: 40px;
+}
+
+.sprite.question-empty {
+    background-position: 0 -1107px;
+    width: 54px;
+    height: 51px;
+}
+
+.sprite.happy {
+    background-position: -0px -1158px;
+    width: 34px;
+    height: 35px;
+}
+
+.sprite.neutral {
+    background-position: -34px -1158px;
+    width: 34px;
+    height: 35px;
+}
+
+.sprite.sad {
+    background-position: -68px -1158px;
+    width: 34px;
+    height: 34px;
+}
+
+.sprite.checkbox {
+    background-position: -102px -1158px;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.sprite.uncheckbox {
+    background-position: -118px -1158px;
+    width: 16px !important;
+    height: 16px !important;
+}

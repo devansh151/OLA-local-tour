@@ -1,0 +1,16 @@
+mat-card.node-detail-card
+  mat-card-header
+    div.detail-header-image('mat-card-avatar'="")
+    mat-card-title {{ data.name }}
+    mat-card-subtitle
+      mat-chip-list
+        mat-basic-chip([ngClass]="data.group") {{ data.group }}
+  blockquote
+    pre
+      code('mat-card-image'="")
+        | {{ graph }}
+  mat-card-content
+    p
+      | {{ data.description }}
+  mat-card-actions
+    button('mat-dialog-close'="",'mat-button'="") Dismiss

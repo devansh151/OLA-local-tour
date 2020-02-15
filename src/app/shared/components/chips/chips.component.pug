@@ -1,0 +1,13 @@
+.ng-chips-holder([ngClass]="{'ngc-disabled': isDisabled}")
+	.ngc-label(*ngIf='!hideLabel') {{labelText}}
+	.ngc-flow
+		div(*ngFor='let chip of chips; let i=index;')
+			.ngc-chip(*ngIf="!chip.get('editable')", [ngClass]="{'ngc-selected': (i === selectedChipIndex), 'ngc-invalid': checkIfValid(chip)}", [attr.draggable]='allowChipDrag', (dblclick)='onChipDoubleClick($event,i)', (dragstart)='chipDragStarted($event, chip)', (dragend)='chipDragged($event, i)')
+				| {{getChipValue(chip)}}
+				i.icon-close.ngc-cross((click)='removeChip(i)')
+			input(style='margin-top: 5px', type='text', *ngIf="chip.get('editable')", [value]='getChipValue(chip)', (blur)='inputBoxEditBlurred($event,i)', (keyup)='inputBoxEditKeyup($event,i)')
+		.suggestion-container
+			input(style='margin-top: 5px', type='text', [(ngModel)]='textBoxVal', (keyup)='textTyped($event)', (focus)='inputBoxFocused()', (blur)='inputBoxBlurred($event)', placeholder="{{ placeholderText || 'Add tags...'}}", [disabled]='isDisabled', (drop)='onChipDrop($event)', #inputBox='')
+			ul.ngc-suggestions([ngClass]="{'ngc-expanded': showSuggestions}", [style.left]="suggestionsLeftOffset + 'px'")
+				li(*ngFor='let suggestion of suggestions; let idx=index;', [ngClass]="{'ngc-selected': (idx === selectedSuggestionIndex)}", (mousedown)='chooseSuggestion(idx, $event)')
+					| {{config ? suggestion.get(config.text) : suggestion}}
