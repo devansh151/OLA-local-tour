@@ -5,7 +5,6 @@ import { CommonModule, PathLocationStrategy } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HomeComponent } from './home.component';
-import { BoardModule } from "../board/board.module";
 import { SchemeListModule } from "../scheme-list/scheme-list.module";
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,7 +18,6 @@ import { HeaderActions } from "./header/shared/header.actions";
 		FlexLayoutModule,
 		FormsModule,
 		ReactiveFormsModule,
-		BoardModule,
 		SchemeListModule
 	],
 	declarations: [

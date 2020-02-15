@@ -1,6 +1,0 @@
-mat-form-field
-	input('matInput'="",placeholder="Condition name",'required'="")
-mat-form-field
-	mat-select('matInput'="",placeholder="Select condition type", name="conditionTypes",(change)="onConditionTypeChange($event)",'required'="")
-		mat-option(*ngFor="let type of conditionTypes", [value]="type.value")
-			| {{ type.viewValue }}

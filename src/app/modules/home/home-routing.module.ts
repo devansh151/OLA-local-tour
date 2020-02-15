@@ -7,7 +7,6 @@ import { HomeComponent } from './home.component';
 import { HomeRouteGuardService } from './home-route-guard.service';
 import { LoginRouteGuardService } from './../../login-route-guard.service';
 import { AppComponent } from "../app/app.component";
-import { BoardMainContainerComponent } from "../board/board-main-container/board-main-container.component";
 import { SchemeListComponent } from "../scheme-list/scheme-list.component";
 
 
@@ -19,8 +18,6 @@ const routes: Routes = [
 
 		// canActivate: [LoginRouteGuardService],
 		children: [
-			{ path: 'board', component: BoardMainContainerComponent },
-			{ path: 'board/:schemeId', component: BoardMainContainerComponent },
 			{ path: '', component: SchemeListComponent },
 			{ path: '**', redirectTo:'' }
 		]

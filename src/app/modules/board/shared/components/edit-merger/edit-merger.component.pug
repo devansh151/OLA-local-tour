@@ -1,6 +1,0 @@
-mat-form-field
-	input('matInput'="",placeholder="Merger name",'required'="")
-mat-form-field
-	mat-select('matInput'="",placeholder="Select merger type", name="mergerTypes",(change)="onMergerTypeChange($event)",'required'="")
-		mat-option(*ngFor="let type of mergerTypes", [value]="type.value")
-			| {{ type.viewValue }}

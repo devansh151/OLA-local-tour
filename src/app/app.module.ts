@@ -6,8 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* App Entities */
 import { AppComponent } from "./modules/app/app.component";
-import { AddNodeDialogComponent } from "./modules/board/shared/components/add-node-dialog/add-node-dialog.component";
-import { EditFosNodeDialogComponent } from "./modules/board/shared/components/edit-fos-node-dialog/edit-fos-node-dialog.component";
 
 /* CoreModule & AppRoutingModule */
 import { CoreModule } from './core/core.module';
@@ -32,8 +30,6 @@ import { Router } from '@angular/router';
 		AppComponent,
 	],
 	entryComponents: [
-		AddNodeDialogComponent,
-		EditFosNodeDialogComponent
 	],
 	providers: [
 		{ provide: ToastOptions, useClass: CustomOption },
