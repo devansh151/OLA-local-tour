@@ -6,6 +6,8 @@ A - Angular4
 R - Redux
 E - Express
 
+Ola local tour basic app with maps and sight seeing iterinarey based on different categories.
+
 ## HTML templating
 Html templating is done using Pug (formerly jade) for reducing time writing html tags :-)
 
