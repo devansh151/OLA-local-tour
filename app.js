@@ -15,7 +15,8 @@ app.get("/getMessage", function(req, response) {
     response.status(200);
     response.send({message:'hello there! welcome....'});
 });
-
-app.listen(4203);
+const PORT = process.env.PORT || 4203;
+app.listen(PORT);
+console.log('server is running on port '+ PORT +' ....');
 
 module.exports = app;

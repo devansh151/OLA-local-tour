@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "build": "webpack --watch",
-    "start": "webpack --watch | webpack-dev-server --port=4203  --hot --inline",
+    "build": "webpack",
+    "start": "webpack && node app.js",
     "build:prod": "webpack --config webpack.prod.config.js ",
     "build:aot": "webpack --config webpack.aot.config.js ",
     "test": "karma start ./karma.conf.js",
